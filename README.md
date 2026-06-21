@@ -1,4 +1,4 @@
-# 🐧 TuxFanControl
+#  TuxFanControl
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![C99 standard](https://img.shields.io/badge/Language-C99-orange.svg)](https://en.wikipedia.org/wiki/C99)
@@ -8,13 +8,13 @@ A lightweight and simple application for managing fan speeds on Linux, designed 
 
 ---
 
-## 📸 Interface
+## Interface
 
 ![TuxFanControl TUI Interface](images/ui.jpg)
 
 ---
 
-## ⚙️ Features
+## Features
 
 *   **Dynamic Sysfs Binding**: Traditional Linux fan tools rely on fixed `/sys/class/hwmon/hwmonX` paths, which can shuffle randomly after a reboot. TuxFanControl binds profiles directly to hardware device names (like `nct6775` or `coretemp`) and resolves the paths dynamically at startup.
 *   **Hardware Fail-Safe Mode**: If a temperature sensor driver crashes or a monitored device is unplugged, the daemon detects the read failure, overrides the curve, and forces **100% PWM fan speed** to prevent overheating.
@@ -24,7 +24,7 @@ A lightweight and simple application for managing fan speeds on Linux, designed 
 
 ---
 
-## 🔍 How It Works Under the Hood
+## How It Works Under the Hood
 
 When you configure a profile, TuxFanControl links a **PWM Controller** to a **Temperature Sensor** using their physical chip identifier and sub-feature file names (e.g., `pwm1` and `temp1_input`).
 
@@ -34,7 +34,7 @@ When you configure a profile, TuxFanControl links a **PWM Controller** to a **Te
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 We provide a simple deployment script that compiles the code, installs the binary to your system path, and generates a systemd service.
 
@@ -59,7 +59,7 @@ sudo tuxfan
 
 ---
 
-## 🖥️ Systemd Service Management
+## Systemd Service Management
 
 Once configured, TuxFanControl can be managed as a standard background service.
 
@@ -94,7 +94,7 @@ journalctl -u tuxfan -f
 
 ---
 
-## 📋 Configuration File Schema (`/etc/tuxfan.conf`)
+## Configuration File Schema (`/etc/tuxfan.conf`)
 
 Profiles are saved globally, keeping configuration centralized for root and background systemd executions:
 ```ini
@@ -111,7 +111,7 @@ p0_p1=35
 
 ---
 
-## 🧹 Uninstallation
+## Uninstallation
 
 To cleanly stop background processes, delete the global binary, systemd service descriptors, and optionally remove your profiles config, execute:
 ```bash
@@ -120,6 +120,6 @@ sudo ./uninstall.sh
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
